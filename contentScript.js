@@ -6,12 +6,14 @@
     chrome.runtime.onMessage.addListener((obj, sender, response) => {
         const { type, value, videoId } = obj;
 
+        // If types of event is NEW video loaded
         if (type === "NEW") {
             currentVideo = videoId;
             newVideoLoaded();
         }
     });
 
+    // Check if bookmark button already exists
     const newVideoLoaded = () => {
         const bookmarkBtnExists = document.getElementsByClassName("bookmark-btn")[0];
         console.log(bookmarkBtnExists);
